@@ -1,37 +1,72 @@
-import './css/index.css';
-
 import React from 'react';
 import ReactDOM from 'react-dom';
-import CSSTransitionGroup from 'react-addons-css-transition-group';
 
-import Hello from './components/Hello';
+import './css/onsenui.css';
+import './css/onsen-css-components.css';
 
-const App = React.createClass({
-  getInitialState() {
-    //return StepStore.getState();
-    return {
-      animationName: 'push',
-    }
+import ons from 'onsenui';
+
+import {
+  Page,
+  Tabbar,
+  Tab,
+  Navigator
+} from 'react-onsenui';
+
+import Home from './components/Home';
+import Dialogs from './components/Dialogs';
+import Forms from './components/Forms';
+import Animations from './components/Animations';
+
+var Tabs = React.createClass({
+  renderTabs: function() {
+    return [
+      {
+        content: <Home navigator={this.props.navigator} />,
+        tab: <Tab label="Home" icon="ion-ios-home-outline" />
+      },
+      {
+        content: <Dialogs navigator={this.props.navigator} />,
+        tab: <Tab label="Dialogs" icon="ion-ios-albums-outline" />
+      },
+      {
+        content: <Forms />,
+        tab: <Tab label="Forms" icon="ion-edit" />
+      },
+      {
+        content: <Animations navigator={this.props.navigator} />,
+        tab: <Tab label="Animations" icon="ion-film-marker" />
+      }
+    ];
   },
-  componentWillMount() {
-    // Lifecycle function that is triggered just before a component mounts
-  },
-  componentWillUnmount() {
-    // Lifecycle function that is triggered just before a component unmounts
-  },
-  render() {
-    const { animationName } = this.state;
+
+  render: function() {
     return (
-      <div>
-        <CSSTransitionGroup transitionName={ animationName }
-            transitionEnterTimeout={ 300 } transitionLeaveTimeout={ 300 }>
-            {/* Remove the below component and its children */}
-            {/* and replace with your own */}
-            <Hello />
-        </CSSTransitionGroup>
-      </div>
+      <Page>
+        <Tabbar
+          renderTabs={this.renderTabs}
+        />
+      </Page>
     );
+  }
+});
+
+var App = React.createClass({
+  renderPage: function(route, navigator) {
+    route.props = route.props || {};
+    route.props.navigator = navigator;
+
+    return React.createElement(route.comp, route.props);
   },
+
+  render: function() {
+    return (
+      <Navigator
+        initialRoute={{comp: Tabs}}
+        renderPage={this.renderPage}
+      />
+    );
+  }
 });
 
 ReactDOM.render(<App />, document.getElementById('app'));
