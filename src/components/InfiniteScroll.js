@@ -1,47 +1,42 @@
 import React from 'react';
 import ons from 'onsenui';
 
-import {
-  Page,
-  Toolbar,
-  BackButton,
-  LazyList,
-  ListItem
-} from 'react-onsenui';
+import {Page, Toolbar, BackButton, LazyList, ListItem, Icon} from 'react-onsenui';
 
 class InfiniteScroll extends React.Component {
-  renderRow(index) {
-    return (
-      <ListItem key={index}>
-        {'Item ' + (index + 1)}
-      </ListItem>
-    );
-  }
+    renderRow(index) {
+        return (
+            <ListItem key={index}>
+                {'Item ' + (index + 1)}
+            </ListItem>
+        );
+    }
 
-  renderToolbar() {
-    return (
-      <Toolbar>
-        <div className='left'>
-          <BackButton>Back</BackButton>
-        </div>
-        <div className='center'>
-          Infinite scroll
-        </div>
-      </Toolbar>
-    );
-  }
+    renderToolbar() {
+        return (
+            <Toolbar>
+                <div className='left'>
+                    <BackButton>
+                        Back
+                    </BackButton>
+                    <Icon icon='fa-arrow-left'/>
+                </div>
+                <div className='center'>
+                    Infinite scroll
+                </div>
+            </Toolbar>
+        );
+    }
 
-  render() {
-    return (
-      <Page renderToolbar={this.renderToolbar}>
-        <LazyList
-          length={10000}
-          renderRow={this.renderRow}
-          calculateItemHeight={() => ons.platform.isAndroid() ? 48 : 44}
-        />
-      </Page>
-    );
-  }
+    render() {
+        return (
+            <Page renderToolbar={this.renderToolbar}>
+                <LazyList length={10000} renderRow={this.renderRow} calculateItemHeight={() => ons.platform.isAndroid()
+                    ? 48
+                    : 44}/>
+            </Page>
+        );
+    }
 }
 
 module.exports = InfiniteScroll;
