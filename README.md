@@ -1,5 +1,4 @@
 # Kitchensink/Boilerplate for Cordova-PhoneGap-Babel-React-Hotloader-Webpack-OnsenUI-FontAwesome Edit
-## Goal
 Template for ready-to-use hybrid mobile apps with native look.
 
 ## Tools
