@@ -2,21 +2,23 @@
 
 Goal is to make a boilerplate for the following tech:
 
-- Apache Cordova
-- Adobe PhoneGap
-- React
-- React Hotloading
-- Babel
-- Webpack
-- OnsenUI
-- FontAwesome
+- Apache Cordova - *to compile to iOS and Android Apps*
+- Adobe PhoneGap - *some juicy Cordova tools*
+- React - **
+- React Hotloading - **
+- Babel - **
+- Webpack - **
+- OnsenUI - **
+- FontAwesome - **
 
 # This repo is not ready, yet
 Things to do:
 - Make sure latest versions are used with NPM
+- Add missing modules to package.json
 - Clean up webpack config?
-- Make sure modules required by webpack are included in package.json
-- Form icons are messed up, maybe include more icon sets?
+- Remove a lot of junk like other icons, themes and modules
+- OnsenUI Form icons are messed up, maybe include more icon sets?
+- Editor config
 
 # Start application
 Run via the CLI
