@@ -51,11 +51,18 @@ http://localhost:80800
 ```
 
 ## Build the app for production
+Make sure Cordova has its platforms
+```
+cordova platform add android
+cordova platform add ios
+cordova platform add browser
+```
 To build the app without the hotreloader:
 ```
 npm run build [ -- ios || android]
 npm run prepare -- ios
 npm run prepare -- android
 ```
-This will switch your config.xml file to production mode, build the app bundle to `www` using Webpack, and run `cordova build` for you.
+This will switch your config.xml file to production mode, build the app bundle to `www` using Webpack and run `cordova build` for you.
+
 Then you can run Cordova / PhoneGap like `phonegap serve` or `cordova run ios`

@@ -8,6 +8,10 @@
         "babel-preset-es2015": "^6.3.13",
         "babel-preset-react": "^6.3.13",
         "classnames": "^2.2.3",
+        "cordova": "^7.1.0",
+        "cordova-android": "^6.3.0",
+        "cordova-plugin-statusbar": "^2.1.3",
+        "cordova-plugin-whitelist": "^1.3.2",
         "react": "^15.3.0",
         "react-addons-css-transition-group": "^15.3.0",
         "react-dom": "^15.3.0",
@@ -31,10 +35,19 @@
         "prepare": "node config && webpack && cordova prepare",
         "build": "node config && webpack && cordova build",
         "start": "node config && HOST=0.0.0.0 webpack-dev-server",
-        "test": "echo \"No tests (yet!) -- submit a PR?\" && exit 0"
+        "test": "echo \"No tests..\" && exit 0"
     },
     "keywords": [],
     "author": "Björn S. von Ubisch - vonUbisch.com",
     "license": "MIT License",
-    "displayName": "App"
+    "displayName": "App",
+    "cordova": {
+        "plugins": {
+            "cordova-plugin-statusbar": {},
+            "cordova-plugin-whitelist": {}
+        },
+        "platforms": [
+            "android"
+        ]
+    }
 }
