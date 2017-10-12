@@ -34,7 +34,7 @@
         "test": "echo \"No tests (yet!) -- submit a PR?\" && exit 0"
     },
     "keywords": [],
-    "author": "none specified",
-    "license": "none specified",
-    "displayName": "helloworld"
+    "author": "Björn S. von Ubisch - vonUbisch.com",
+    "license": "MIT License",
+    "displayName": "App"
 }
