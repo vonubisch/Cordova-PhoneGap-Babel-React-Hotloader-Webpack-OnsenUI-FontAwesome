@@ -1,5 +1,5 @@
 {
-    "name": "com.vonubisch.ridenut",
+    "name": "com.vonubisch.app",
     "version": "1.0.0",
     "main": "src/index.js",
     "dependencies": {
