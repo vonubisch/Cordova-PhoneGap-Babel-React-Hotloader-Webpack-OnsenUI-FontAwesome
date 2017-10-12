@@ -21,19 +21,19 @@ var Layout = React.createClass({
         return [
             {
                 content: <SideMenu navigator={this.props.navigator}/>,
-                tab: <Tab label="SideMenu" icon="fa-building"/>
+                tab: <Tab label="SideMenu" icon="fa-bars"/>
             }, {
                 content: <Home navigator={this.props.navigator}/>,
-                tab: <Tab label="Home" icon="fa-building"/>
+                tab: <Tab label="Home" icon="fa-home"/>
             }, {
                 content: <Dialogs navigator={this.props.navigator}/>,
-                tab: <Tab label="Dialogs" icon="fa-globe"/>
+                tab: <Tab label="Dialogs" icon="fa-warning"/>
             }, {
                 content: <Forms />,
                 tab: <Tab label="Forms" icon="fa-comment"/>
             }, {
                 content: <Animations navigator={this.props.navigator}/>,
-                tab: <Tab label="Animations" icon="fa-user"/>
+                tab: <Tab label="Animations" icon="fa-spinner"/>
             }
         ];
     },

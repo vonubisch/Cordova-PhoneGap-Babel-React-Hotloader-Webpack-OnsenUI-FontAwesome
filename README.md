@@ -1,6 +1,9 @@
 # Kitchensink/Boilerplate for Cordova-PhoneGap-Babel-React-Hotloader-Webpack-OnsenUI-FontAwesome
 Template for ready-to-use hybrid mobile apps with native look.
+
+## Preview
 ![Material](https://raw.github.com/vonubisch/Cordova-PhoneGap-Babel-React-Hotloader-Webpack-OnsenUI-FontAwesome/master/res/demo/preview-android.jpg)
+
 ## Tools
 Not all are correctly implemented/configured yet.
 - Apache Cordova - *to compile to iOS and Android Apps*
