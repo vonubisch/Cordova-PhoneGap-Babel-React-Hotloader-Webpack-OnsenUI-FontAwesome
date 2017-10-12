@@ -1,7 +1,9 @@
-# PhoneGap-Babel-React-Webpack-OnsenUI-FontAwesome
+# Kitchensink/Boilerplate for Cordova-PhoneGap-Babel-React-Hotloader-Webpack-OnsenUI-FontAwesome Edit
+## Goal
+Template for ready-to-use hybrid mobile apps with native look.
 
-Goal is to make a boilerplate for the following tech:
-
+## Tools
+Not all are correctly implemented/configured yet.
 - Apache Cordova - *to compile to iOS and Android Apps*
 - Adobe PhoneGap - *some juicy Cordova tools*
 - React - *DOM ninja*
@@ -17,16 +19,18 @@ Things to do:
 - Add missing modules to package.json
 - Make sure latest versions are used with NPM - any tool to check latest version and update?
 - Find out how I can reduce size, due to later building by PhoneGap, so exclude (which) node_modules?
-- Use ESlint, havent tried
+- Use ESlint, not implemented yet
 - Add a Editor config
 - Make sure it actually builds to an App
 - Clean up webpack config ??
 - Add more babel config ??
+- Fix console errors
+- Demo more UI stuff with OnsenUI-react
 - Remove a lot of junk like other icons, themes and modules
 - OnsenUI Form icons are messed up, other icon set?
 
 ## Start application
-Run via the CLI
+Run via the CLI:
 ```
 npm install
 npm run start
@@ -45,13 +49,11 @@ http://localhost:80800
 ```
 
 ## Build the app for production
-To build the app without the hotreloade:
+To build the app without the hotreloader:
 ```
 npm run build [ -- ios || android]
 npm run prepare -- ios
 npm run prepare -- android
 ```
-
-This will switch your config.xml file to production mode, build the app bundle to `/www` using Webpack, and run `cordova build` for you.
-
-Then you can run Cordova / PhoneGap like `phonegap serve`, or `cordova run ios`, etc.
+This will switch your config.xml file to production mode, build the app bundle to `www` using Webpack, and run `cordova build` for you.
+Then you can run Cordova / PhoneGap like `phonegap serve` or `cordova run ios`
