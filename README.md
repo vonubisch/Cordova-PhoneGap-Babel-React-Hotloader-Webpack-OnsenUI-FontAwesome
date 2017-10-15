@@ -11,6 +11,7 @@ Not all are correctly implemented/configured yet.
 - React - *DOM ninja*
 - React Hotloading - *No more F5*
 - Babel - *for sexy JS*
+- Firestore - *store files and data*
 - Webpack - *Pack it up*
 - ESlint - *only pretty code*
 - OnsenUI - *CSS framework native iOS/Android*
@@ -21,9 +22,6 @@ Things to do:
 - Add missing modules to package.json
 - Make sure latest versions are used with NPM - any tool to check latest version and update?
 - Find out how I can reduce size, due to later building by PhoneGap, so exclude (which) node_modules?
-- Use ESlint, not implemented yet
-- Add a Editor config
-- Make sure it actually builds to an App
 - Clean up webpack config ??
 - Add more babel config ??
 - Fix console errors
@@ -47,7 +45,7 @@ npm run start
 ```
 Then open the browser at something like:
 ```
-http://localhost:80800
+http://localhost:8080
 ```
 
 ## Build the app for production
@@ -66,3 +64,5 @@ npm run prepare -- android
 This will switch your config.xml file to production mode, build the app bundle to `www` using Webpack and run `cordova build` for you.
 
 Then you can run Cordova / PhoneGap like `phonegap serve` or `cordova run ios`
+
+Now you can use the PhoneGap developer app or browser to view your app.
