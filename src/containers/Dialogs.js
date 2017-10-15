@@ -73,4 +73,4 @@ class Dialogs extends React.Component {
     }
 }
 
-module.exports = Dialogs;
+export default Dialogs;

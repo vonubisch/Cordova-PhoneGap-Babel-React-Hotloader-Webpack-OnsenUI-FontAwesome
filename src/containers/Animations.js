@@ -1,6 +1,6 @@
 import React from 'react';
 
-import ons from 'onsenui';
+// import ons from 'onsenui';
 
 import {Page, Toolbar, List, ListItem, ListHeader} from 'react-onsenui';
 
@@ -101,4 +101,4 @@ class Animations extends React.Component {
     }
 }
 
-module.exports = Animations;
+export default Animations;

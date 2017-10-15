@@ -14,10 +14,15 @@ import {
 class PullToRefresh extends React.Component {
     constructor(props) {
         super(props);
-
         this.state = {
             pullHookState: 'initial',
             data: this.getRandomData()
+        };
+    }
+
+    componentWillUnmount() {
+        if (this.timeout) {
+            clearTimeout(this.timeout);
         }
     }
 
@@ -38,15 +43,13 @@ class PullToRefresh extends React.Component {
     }
 
     getRandomUrl() {
-        var width = 40 + Math.floor(20 * Math.random());
-        var height = 40 + Math.floor(20 * Math.random());
+        const width = 40 + Math.floor(20 * Math.random());
+        const height = 40 + Math.floor(20 * Math.random());
 
         return `https://placekitten.com/g/${width}/${height}`;
     }
 
     getRandomKitten() {
-        var name = this.getRandomName();
-
         return {name: this.getRandomName(), url: this.getRandomUrl()};
     }
 
@@ -76,12 +79,6 @@ class PullToRefresh extends React.Component {
         }, 1000);
     }
 
-    componentWillUnmount() {
-        if (this.timeout) {
-            clearTimeout(this.timeout);
-        }
-    }
-
     renderToolbar() {
         return (
             <Toolbar>
@@ -96,10 +93,10 @@ class PullToRefresh extends React.Component {
     renderRow(data) {
         return (
             <ListItem>
-                <div className='left'>
-                    <img className='list__item__thumbnail' src={data.url}/>
+                <div className="left">
+                    <img className="list__item__thumbnail" src={data.url}/>
                 </div>
-                <div className='center'>
+                <div className="center">
                     {data.name}
                 </div>
             </ListItem>
@@ -115,7 +112,7 @@ class PullToRefresh extends React.Component {
         } else if (state === 'preaction') {
             content = 'Release';
         } else {
-            content = <Icon icon='spinner' spin/>;
+            content = <Icon icon="spinner" spin/>;
         }
 
         return (
@@ -130,4 +127,4 @@ class PullToRefresh extends React.Component {
     }
 }
 
-module.exports = PullToRefresh;
+export default PullToRefresh;

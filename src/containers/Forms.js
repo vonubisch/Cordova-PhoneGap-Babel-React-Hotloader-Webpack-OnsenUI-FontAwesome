@@ -107,4 +107,4 @@ class Forms extends React.Component {
     }
 }
 
-module.exports = Forms;
+export default Forms;

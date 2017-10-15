@@ -6,10 +6,10 @@ class FloatingActionButton extends React.Component {
     renderToolbar() {
         return (
             <Toolbar>
-                <div className='left'>
+                <div className="left">
                     <BackButton>Back</BackButton>
                 </div>
-                <div className='center'>Floating action button</div>
+                <div className="center">Floating action button</div>
             </Toolbar>
         );
     }
@@ -25,4 +25,4 @@ class FloatingActionButton extends React.Component {
     }
 }
 
-module.exports = FloatingActionButton;
+export default FloatingActionButton;

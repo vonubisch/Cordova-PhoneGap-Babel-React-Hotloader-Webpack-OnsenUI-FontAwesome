@@ -1,5 +1,5 @@
 import React from 'react';
-import ons from 'onsenui';
+// import ons from 'onsenui';
 
 import {Page, Toolbar, BackButton, LazyList, ListItem, Icon} from 'react-onsenui';
 
@@ -15,13 +15,13 @@ class InfiniteScroll extends React.Component {
     renderToolbar() {
         return (
             <Toolbar>
-                <div className='left'>
+                <div className="left">
                     <BackButton>
                         Back
                     </BackButton>
-                    <Icon icon='fa-arrow-left'/>
+                    <Icon icon="fa-arrow-left"/>
                 </div>
-                <div className='center'>
+                <div className="center">
                     Infinite scroll
                 </div>
             </Toolbar>
@@ -31,12 +31,14 @@ class InfiniteScroll extends React.Component {
     render() {
         return (
             <Page renderToolbar={this.renderToolbar}>
-                <LazyList length={10000} renderRow={this.renderRow} calculateItemHeight={() => ons.platform.isAndroid()
-                    ? 48
-                    : 44}/>
+                <LazyList
+                    length={10000}
+                    renderRow={this.renderRow}
+                    // calculateItemHeight={() => ons.platform.isAndroid() ? 48 : 44}
+                />
             </Page>
         );
     }
 }
 
-module.exports = InfiniteScroll;
+export default InfiniteScroll;

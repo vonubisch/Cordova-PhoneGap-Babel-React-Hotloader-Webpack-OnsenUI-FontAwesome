@@ -88,4 +88,4 @@ class SideMenu extends React.Component {
     }
 }
 
-module.exports = SideMenu;
+export default SideMenu;
