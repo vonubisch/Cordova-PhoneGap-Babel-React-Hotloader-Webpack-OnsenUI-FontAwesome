@@ -7,7 +7,6 @@ import {
     SplitterContent,
     Toolbar,
     ToolbarButton,
-    BackButton,
     Icon,
     List,
     ListItem,
@@ -35,7 +34,6 @@ class SideMenu extends React.Component {
         return (
             <Toolbar>
                 <div className="left">
-                    <BackButton>Back</BackButton>
                     <ToolbarButton onClick={this.show.bind(this)}>
                         <Icon icon="fa-bars"/>
                     </ToolbarButton>
@@ -69,7 +67,7 @@ class SideMenu extends React.Component {
                             <List
                                 dataSource={[1, 2, 3, 4]}
                                 renderHeader={() => <ListHeader>Menu</ListHeader>}
-                                renderRow={(i) => <ListItem modifier="longdivider" tappable>{"Menu item " + i}</ListItem>}
+                                renderRow={(i) => <ListItem key={i} modifier="longdivider" tappable>{"Menu item " + i}</ListItem>}
                             />
                         </Page>
                     </SplitterSide>

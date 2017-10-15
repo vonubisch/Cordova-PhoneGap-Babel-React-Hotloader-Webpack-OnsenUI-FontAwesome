@@ -43,8 +43,12 @@ class Animations extends React.Component {
                 <List
                     renderHeader={() => <ListHeader>Transitions</ListHeader>}
                     dataSource={['none', 'fade', 'slide', 'lift']}
-                    renderRow={(row) => (
-                        <ListItem tappable onClick={this.pushPage.bind(this, row)}>
+                    renderRow={(row, i) => (
+                        <ListItem
+                            key={i}
+                            tappable
+                            onClick={this.pushPage.bind(this, row)}
+                        >
                             {capitalize(row)}
                         </ListItem>
                     )}

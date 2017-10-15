@@ -7,6 +7,7 @@ import Layout from './Layout';
 class App extends React.Component {
     renderPage(route, navigator) {
         route.props = route.props || {};
+        route.props.key = route.comp.displayName;
         route.props.navigator = navigator;
         return React.createElement(route.comp, route.props);
     }

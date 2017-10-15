@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import {Tabbar, Tab} from 'react-onsenui';
+import {Tabbar, Tab, Toolbar} from 'react-onsenui';
 
 import Home from './containers/Home';
 import Dialogs from './containers/Dialogs';
@@ -14,28 +14,32 @@ class Layout extends React.Component {
         super(props);
         this.renderTabs = this.renderTabs.bind(this);
     }
+
+    renderToolbar() {
+        return (
+            <Toolbar>
+                <div className="center">Forms</div>
+            </Toolbar>
+        );
+    }
+
     renderTabs() {
         return [
             {
-                key: 0,
-                content: <SideMenu navigator={this.props.navigator}/>,
-                tab: <Tab label="SideMenu" icon="fa-bars"/>
+                content: <SideMenu key={0} navigator={this.props.navigator}/>,
+                tab: <Tab key={0} label="SideMenu" icon="fa-bars" />
             }, {
-                key: 1,
-                content: <Home navigator={this.props.navigator}/>,
-                tab: <Tab label="Home" icon="fa-home"/>
+                content: <Home key={1} navigator={this.props.navigator}/>,
+                tab: <Tab key={1} label="Home" icon="fa-home"/>
             }, {
-                key: 2,
-                content: <Dialogs navigator={this.props.navigator}/>,
-                tab: <Tab label="Dialogs" icon="fa-warning"/>
+                content: <Dialogs key={2} navigator={this.props.navigator}/>,
+                tab: <Tab key={2} label="Dialogs" icon="fa-warning"/>
             }, {
-                key: 3,
-                content: <Forms />,
-                tab: <Tab label="Forms" icon="fa-comment"/>
+                content: <Forms key={3} />,
+                tab: <Tab key={3} label="Forms" icon="fa-comment"/>
             }, {
-                key: 4,
-                content: <Animations navigator={this.props.navigator}/>,
-                tab: <Tab label="Animations" icon="fa-spinner"/>
+                content: <Animations key={4} navigator={this.props.navigator}/>,
+                tab: <Tab key={4} label="Animations" icon="fa-spinner"/>
             }
         ];
     }
@@ -45,7 +49,10 @@ class Layout extends React.Component {
             return;
         }
         return (
-            <Tabbar renderTabs={this.renderTabs}/>
+            <Tabbar
+                swipeable
+                renderTabs={this.renderTabs}
+            />
         );
     }
 }

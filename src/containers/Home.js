@@ -59,8 +59,12 @@ class Home extends React.Component {
                             component: SpeedDials
                         }
                     ]}
-                    renderRow={(row) => (
-                        <ListItem tappable onClick={this.gotoComponent.bind(this, row.component)}>
+                    renderRow={(row, i) => (
+                        <ListItem
+                            key={i}
+                            tappable
+                            onClick={this.gotoComponent.bind(this, row.component)}
+                        >
                             {row.name}
                         </ListItem>
                     )}

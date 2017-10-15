@@ -27,7 +27,6 @@ Things to do:
 - Fix console errors
 - Demo more UI stuff with OnsenUI-react
 - Remove a lot of junk like other icons, themes and modules
-- OnsenUI Form icons are messed up, other icon set?
 
 ## Start application
 Run via the CLI:

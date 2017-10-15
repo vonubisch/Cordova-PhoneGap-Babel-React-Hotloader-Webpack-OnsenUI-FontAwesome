@@ -9,7 +9,9 @@ import {
     ListHeader,
     ListItem,
     Switch,
-    Input
+    Input,
+    Radio,
+    Checkbox,
 } from 'react-onsenui';
 
 class Forms extends React.Component {
@@ -82,9 +84,13 @@ class Forms extends React.Component {
                     renderHeader={() => <ListHeader>Radio buttons</ListHeader>} renderFooter={() => <ListItem>I love&nbsp;{this.state.selectedVegetable}!</ListItem>}
                     renderRow={(vegetable, index) => {
                         return (
-                            <ListItem tappable>
+                            <ListItem key={index} tappable>
                                 <label className="left">
-                                    <Input inputId={'radio' + index} name="vegetable" onChange={this.setVegetable.bind(this, vegetable)} checked={this.state.selectedVegetable === vegetable} type="radio"/>
+                                    <Radio
+                                        name="vegetable"
+                                        onChange={this.setVegetable.bind(this, vegetable)}
+                                        checked={this.state.selectedVegetable === vegetable}
+                                    />
                                 </label>
                                 <label htmlFor={'radio' + index} className="center">
                                     {vegetable}
@@ -99,9 +105,9 @@ class Forms extends React.Component {
                     renderHeader={() => <ListHeader>Checkboxes</ListHeader>}
                     renderRow={(color, index) => {
                         return (
-                            <ListItem tappable>
+                            <ListItem key={index} tappable>
                                 <label className="left">
-                                    <Input inputId={'checkbox' + index} type="checkbox"/>
+                                    <Checkbox />
                                 </label>
                                 <label htmlFor={'checkbox' + index} className="center">
                                     {color}
@@ -117,13 +123,13 @@ class Forms extends React.Component {
                     renderRow={(_, index) => {
                         if (index === 0) {
                             return (
-                                <ListItem>
+                                <ListItem key={index}>
                                     <Input value={this.state.name} onChange={this.handleNameChange.bind(this)} placeholder="Name" float/>
                                 </ListItem>
                             );
                         } else {
                             return (
-                                <ListItem>
+                                <ListItem key={index}>
                                     Heldlo&nbsp;{this.state.name}!
                                 </ListItem>
                             );
