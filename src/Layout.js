@@ -66,7 +66,7 @@ class Layout extends React.Component {
                 tab: <Tab key={1} label="Home" icon="fa-home"/>
             }, {
                 content: <Dialogs key={2} navigator={this.props.navigator}/>,
-                tab: <Tab key={2} label="Dialogs" icon="fa-warning"/>
+                tab: <Tab key={2} label="Dialogs" icon="fa-window-maximize"/>
             }, {
                 content: <Forms key={3} />,
                 tab: <Tab key={3} label="Forms" icon="fa-comment"/>

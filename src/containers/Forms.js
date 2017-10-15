@@ -26,6 +26,7 @@ class Forms extends React.Component {
             colors: [
                 'Red', 'Blue', 'Green', 'Yellow'
             ],
+            selectedColors: ['Red'],
             name: 'Andreas'
         };
     }
@@ -38,6 +39,17 @@ class Forms extends React.Component {
         this.setState({selectedVegetable: vegetable});
     }
 
+    setColor(color) {
+        const selectedColors = this.state.selectedColors;
+        const index = selectedColors.indexOf(color);
+        if (index >= 0) {
+            selectedColors.splice(index, 1);
+            this.setState({selectedColors});
+        } else {
+            this.setState({selectedColors: [...selectedColors, color]});
+        }
+    }
+
     handleNameChange(event) {
         this.setState({name: event.target.value});
     }
@@ -47,7 +59,7 @@ class Forms extends React.Component {
             <Page>
                 <List
                     dataSource={[
-                        <ListItem key={0}>
+                        <ListItem key={0} tappable>
                             <div className="center">
                                 Switch ({this.state.switchEnabled ? 'on' : 'off'})
                             </div>
@@ -75,12 +87,11 @@ class Forms extends React.Component {
                     renderHeader={() => <ListHeader>Radio buttons</ListHeader>} renderFooter={() => <ListItem>I love&nbsp;{this.state.selectedVegetable}!</ListItem>}
                     renderRow={(vegetable, index) => {
                         return (
-                            <ListItem key={index} tappable>
+                            <ListItem key={index} onClick={this.setVegetable.bind(this, vegetable)} tappable>
                                 <label className="left">
                                     <Radio
                                         name="vegetable"
-                                        onChange={this.setVegetable.bind(this, vegetable)}
-                                        checked={this.state.selectedVegetable === vegetable}
+                                        checked={(this.state.selectedVegetable === vegetable)}
                                     />
                                 </label>
                                 <label htmlFor={'radio' + index} className="center">
@@ -96,9 +107,11 @@ class Forms extends React.Component {
                     renderHeader={() => <ListHeader>Checkboxes</ListHeader>}
                     renderRow={(color, index) => {
                         return (
-                            <ListItem key={index} tappable>
+                            <ListItem key={index} onClick={this.setColor.bind(this, color)} tappable>
                                 <label className="left">
-                                    <Checkbox />
+                                    <Checkbox
+                                        checked={(this.state.selectedColors.indexOf(color) >= 0)}
+                                    />
                                 </label>
                                 <label htmlFor={'checkbox' + index} className="center">
                                     {color}
@@ -121,7 +134,7 @@ class Forms extends React.Component {
                         } else {
                             return (
                                 <ListItem key={index}>
-                                    Heldlo&nbsp;{this.state.name}!
+                                    Hello {this.state.name}!
                                 </ListItem>
                             );
                         }
