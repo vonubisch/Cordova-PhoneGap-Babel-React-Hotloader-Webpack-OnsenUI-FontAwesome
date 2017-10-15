@@ -1,26 +1,67 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import {Tabbar, Tab} from 'react-onsenui';
+import {
+    Page,
+    Splitter,
+    SplitterSide,
+    SplitterContent,
+    Toolbar,
+    ToolbarButton,
+    Icon,
+    List,
+    ListItem,
+    ListHeader,
+    Tab,
+    Tabbar
+} from 'react-onsenui';
 
 import Home from './containers/Home';
 import Dialogs from './containers/Dialogs';
 import Forms from './containers/Forms';
 import Animations from './containers/Animations';
-import SideMenu from './containers/SideMenu';
 
 class Layout extends React.Component {
     constructor(props) {
         super(props);
+        this.state = {
+            isOpen: false
+        };
         this.renderTabs = this.renderTabs.bind(this);
+    }
+
+    hide() {
+        this.setState({isOpen: false});
+    }
+
+    show() {
+        this.setState({isOpen: true});
+    }
+
+    renderToolbar() {
+        return (
+            <Toolbar>
+                <div className="left">
+                    <ToolbarButton onClick={this.show.bind(this)}>
+                        <Icon icon="fa-bars"/>
+                    </ToolbarButton>
+                </div>
+                <div className="center">
+                    <img src="svg/logo.svg" style={{maxHeight: 20, color: 'white', marginRight: 20}}/>
+                    My App
+                </div>
+                <div className="right">
+                    <ToolbarButton onClick={this.show.bind(this)}>
+                        <Icon icon="fa-cog"/>
+                    </ToolbarButton>
+                </div>
+            </Toolbar>
+        );
     }
 
     renderTabs() {
         return [
             {
-                content: <SideMenu key={0} navigator={this.props.navigator}/>,
-                tab: <Tab key={0} label="SideMenu" icon="fa-bars" />
-            }, {
                 content: <Home key={1} navigator={this.props.navigator}/>,
                 tab: <Tab key={1} label="Home" icon="fa-home"/>
             }, {
@@ -37,14 +78,37 @@ class Layout extends React.Component {
     }
 
     render() {
-        if (!this.props.navigator) {
-            return;
-        }
         return (
-            <Tabbar
-                swipeable
-                renderTabs={this.renderTabs}
-            />
+            <Page>
+                <Splitter>
+                    <SplitterSide
+                        side="left"
+                        isOpen={this.state.isOpen}
+                        onClose={this.hide.bind(this)}
+                        onOpen={this.show.bind(this)}
+                        collapse={true}
+                        width={240}
+                        swipeable={true}
+                    >
+                        <Page>
+                            <List
+                                dataSource={[1, 2, 3, 4]}
+                                renderHeader={() => <ListHeader>Menu</ListHeader>}
+                                renderRow={(i) => <ListItem key={i} modifier="longdivider" tappable>{"Menu item " + i}</ListItem>}
+                            />
+                        </Page>
+                    </SplitterSide>
+                    <SplitterContent>
+                        <Page renderToolbar={this.renderToolbar.bind(this)}>
+                            <Tabbar
+                                swipeable
+                                position="top"
+                                renderTabs={this.renderTabs}
+                            />
+                        </Page>
+                    </SplitterContent>
+                </Splitter>
+            </Page>
         );
     }
 }
