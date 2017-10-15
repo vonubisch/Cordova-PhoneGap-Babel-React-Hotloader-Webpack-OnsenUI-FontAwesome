@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import {Tabbar, Tab, Toolbar} from 'react-onsenui';
+import {Tabbar, Tab} from 'react-onsenui';
 
 import Home from './containers/Home';
 import Dialogs from './containers/Dialogs';
@@ -13,14 +13,6 @@ class Layout extends React.Component {
     constructor(props) {
         super(props);
         this.renderTabs = this.renderTabs.bind(this);
-    }
-
-    renderToolbar() {
-        return (
-            <Toolbar>
-                <div className="center">Forms</div>
-            </Toolbar>
-        );
     }
 
     renderTabs() {
