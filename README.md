@@ -24,9 +24,7 @@ Things to do:
 - Find out how I can reduce size, due to later building by PhoneGap, so exclude (which) node_modules?
 - Clean up webpack config ??
 - Add more babel config ??
-- Fix console errors
 - Demo more UI stuff with OnsenUI-react
-- Remove a lot of junk like other icons, themes and modules
 
 ## Start application
 Run via the CLI:
