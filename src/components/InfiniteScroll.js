@@ -1,7 +1,7 @@
 import React from 'react';
 import ons from 'onsenui';
 
-import {Page, Toolbar, BackButton, LazyList, ListItem, Icon} from 'react-onsenui';
+import {Page, Toolbar, BackButton, LazyList, ListItem} from 'react-onsenui';
 
 class InfiniteScroll extends React.Component {
     renderRow(index) {
