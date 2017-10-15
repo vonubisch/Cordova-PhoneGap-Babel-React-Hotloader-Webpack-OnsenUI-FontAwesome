@@ -1,6 +1,8 @@
 import 'onsenui/css/onsenui.css';
 import 'onsenui/css/onsen-css-components.css';
 
+import './css/style.css';
+
 import 'font-awesome-webpack';
 
 import React from 'react';
