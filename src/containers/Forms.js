@@ -1,6 +1,6 @@
 import React from 'react';
 
-import ons from 'onsenui';
+// import ons from 'onsenui';
 
 import {
     Page,
@@ -44,7 +44,7 @@ class Forms extends React.Component {
     renderToolbar() {
         return (
             <Toolbar>
-                <div className='center'>Forms</div>
+                <div className="center">Forms</div>
             </Toolbar>
         );
     }
@@ -52,56 +52,84 @@ class Forms extends React.Component {
     render() {
         return (
             <Page renderToolbar={this.renderToolbar}>
-                <List dataSource={[ < ListItem > <div className="center">
-                    Switch ({this.state.switchEnabled
-                        ? 'on'
-                        : 'off'})
-                </div> < div className = "right" > <Switch checked={this.state.switchEnabled} onChange={this.handleSwitchChange.bind(this)}/> < /div> </ListItem >, < ListItem > <div className="center">
-                    Disabled switch
-                </div> < div className = "right" > <Switch disabled/> < /div> </ListItem >
-                ]} renderHeader={() => <ListHeader>Switches</ListHeader>} renderRow={(row) => row}/>
-
-                <List dataSource={this.state.vegetables} renderHeader={() => <ListHeader>Radio buttons</ListHeader>} renderFooter={() => <ListItem>I love&nbsp;{this.state.selectedVegetable}!</ListItem>} renderRow={(vegetable, index) => {
-                    return (
-                        <ListItem tappable>
-                            <label className="left">
-                                <Input inputId={'radio' + index} name="vegetable" onChange={this.setVegetable.bind(this, vegetable)} checked={this.state.selectedVegetable === vegetable} type="radio"/>
-                            </label>
-                            <label htmlFor={'radio' + index} className="center">
-                                {vegetable}
-                            </label>
+                <List
+                    dataSource={[
+                        <ListItem key={0}>
+                            <div className="center">
+                                Switch ({this.state.switchEnabled ? 'on' : 'off'})
+                            </div>
+                            <div className="right">
+                                <Switch
+                                    checked={this.state.switchEnabled}
+                                    onChange={this.handleSwitchChange.bind(this)}
+                                />
+                            </div>
+                        </ListItem>,
+                        <ListItem key={1}>
+                            <div className="center">
+                                Disabled switch
+                            </div>
+                            <div className="right">
+                                <Switch disabled/>
+                            </div>
                         </ListItem>
-                    );
-                }}/>
-
-                <List dataSource={this.state.colors} renderHeader={() => <ListHeader>Checkboxes</ListHeader>} renderRow={(color, index) => {
-                    return (
-                        <ListItem tappable>
-                            <label className="left">
-                                <Input inputId={'checkbox' + index} type="checkbox"/>
-                            </label>
-                            <label htmlFor={'checkbox' + index} className="center">
-                                {color}
-                            </label>
-                        </ListItem>
-                    );
-                }}/>
-
-                <List dataSource={[0, 1]} renderHeader={() => <ListHeader>Text input</ListHeader>} renderRow={(_, index) => {
-                    if (index === 0) {
+                    ]}
+                    renderHeader={() => <ListHeader>Switches</ListHeader>}
+                    renderRow={(row) => row}
+                />
+                <List
+                    dataSource={this.state.vegetables}
+                    renderHeader={() => <ListHeader>Radio buttons</ListHeader>} renderFooter={() => <ListItem>I love&nbsp;{this.state.selectedVegetable}!</ListItem>}
+                    renderRow={(vegetable, index) => {
                         return (
-                            <ListItem>
-                                <Input value={this.state.name} onChange={this.handleNameChange.bind(this)} placeholder="Name" float/>
+                            <ListItem tappable>
+                                <label className="left">
+                                    <Input inputId={'radio' + index} name="vegetable" onChange={this.setVegetable.bind(this, vegetable)} checked={this.state.selectedVegetable === vegetable} type="radio"/>
+                                </label>
+                                <label htmlFor={'radio' + index} className="center">
+                                    {vegetable}
+                                </label>
                             </ListItem>
                         );
-                    } else {
+                    }}
+                />
+
+                <List
+                    dataSource={this.state.colors}
+                    renderHeader={() => <ListHeader>Checkboxes</ListHeader>}
+                    renderRow={(color, index) => {
                         return (
-                            <ListItem>
-                                Heldlo&nbsp;{this.state.name}!
+                            <ListItem tappable>
+                                <label className="left">
+                                    <Input inputId={'checkbox' + index} type="checkbox"/>
+                                </label>
+                                <label htmlFor={'checkbox' + index} className="center">
+                                    {color}
+                                </label>
                             </ListItem>
                         );
-                    }
-                }}/>
+                    }}
+                />
+
+                <List
+                    dataSource={[0, 1]}
+                    renderHeader={() => <ListHeader>Text input</ListHeader>}
+                    renderRow={(_, index) => {
+                        if (index === 0) {
+                            return (
+                                <ListItem>
+                                    <Input value={this.state.name} onChange={this.handleNameChange.bind(this)} placeholder="Name" float/>
+                                </ListItem>
+                            );
+                        } else {
+                            return (
+                                <ListItem>
+                                    Heldlo&nbsp;{this.state.name}!
+                                </ListItem>
+                            );
+                        }
+                    }}
+                />
             </Page>
         );
     }

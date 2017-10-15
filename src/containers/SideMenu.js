@@ -34,18 +34,18 @@ class SideMenu extends React.Component {
     renderToolbar() {
         return (
             <Toolbar>
-                <div className='left'>
-                    {/* <BackButton>Back</BackButton> */}
+                <div className="left">
+                    <BackButton>Back</BackButton>
                     <ToolbarButton onClick={this.show.bind(this)}>
-                        <Icon icon='fa-bars'/>
+                        <Icon icon="fa-bars"/>
                     </ToolbarButton>
                 </div>
-                <div className='center'>
+                <div className="center">
                     My App
                 </div>
-                <div className='right'>
+                <div className="right">
                     <ToolbarButton onClick={this.show.bind(this)}>
-                        <Icon icon='fa-cog'/>
+                        <Icon icon="fa-cog"/>
                     </ToolbarButton>
                 </div>
             </Toolbar>
@@ -57,7 +57,7 @@ class SideMenu extends React.Component {
             <Page>
                 <Splitter>
                     <SplitterSide
-                        side='left'
+                        side="left"
                         isOpen={this.state.isOpen}
                         onClose={this.hide.bind(this)}
                         onOpen={this.show.bind(this)}
@@ -69,15 +69,13 @@ class SideMenu extends React.Component {
                             <List
                                 dataSource={[1, 2, 3, 4]}
                                 renderHeader={() => <ListHeader>Menu</ListHeader>}
-                                renderRow={(i) => <ListItem modifier='longdivider' tappable>{'Menu item ' + i}</ListItem>}
+                                renderRow={(i) => <ListItem modifier="longdivider" tappable>{"Menu item " + i}</ListItem>}
                             />
                         </Page>
                     </SplitterSide>
                     <SplitterContent>
                         <Page renderToolbar={this.renderToolbar.bind(this)}>
-                            <p style={{
-                                textAlign: 'center'
-                            }}>
+                            <p style={{textAlign: "center"}}>
                                 Swipe left to open menu!
                             </p>
                         </Page>

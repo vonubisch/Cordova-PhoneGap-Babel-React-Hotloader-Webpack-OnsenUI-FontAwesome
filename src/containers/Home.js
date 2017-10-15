@@ -1,6 +1,7 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
-import ons from 'onsenui';
+// import ons from 'onsenui';
 
 import {Page, Toolbar, List, ListItem, ListHeader} from 'react-onsenui';
 
@@ -9,10 +10,10 @@ import InfiniteScroll from '../components/InfiniteScroll';
 import SideMenu from '../containers/SideMenu';
 import FloatingActionButton from '../components/FloatingActionButton';
 import SpeedDials from '../components/SpeedDials';
-
-const initialPlatform = ons.platform.isAndroid()
-    ? 'android'
-    : 'ios';
+//
+// const initialPlatform = ons.platform.isAndroid()
+//     ? 'android'
+//     : 'ios';
 
 class Home extends React.Component {
     gotoComponent(component) {
@@ -22,7 +23,7 @@ class Home extends React.Component {
     renderToolbar() {
         return (
             <Toolbar>
-                <div className='center'>Home</div>
+                <div className="center">Home</div>
             </Toolbar>
         );
     }
@@ -30,41 +31,47 @@ class Home extends React.Component {
     render() {
         return (
             <Page renderToolbar={this.renderToolbar}>
-                <p style={{
-                    padding: '0 15px'
-                }}>
+                <p style={{padding: '0 15px'}}>
                     This is a kitchen sink example that shows off the React extension for Onsen UI.
                 </p>
-                <p style={{
-                    padding: '0 15px'
-                }}>
-                    <a href="https://onsen.io/v2/react.html" target="_blank">
+                <p style={{padding: '0 15px'}}>
+                    <a href="https://onsen.io/v2/react.html" target="_blank" rel="noopener noreferrer">
                         <strong>Official site with docs</strong>
                     </a>
                 </p>
-                <List renderHeader={() => <ListHeader>Components</ListHeader>} dataSource={[
-                    {
-                        name: 'Pull to refresh',
-                        component: PullToRefresh
-                    }, {
-                        name: 'Infinite scroll',
-                        component: InfiniteScroll
-                    }, {
-                        name: 'Side menu',
-                        component: SideMenu
-                    }, {
-                        name: 'Floating action button',
-                        component: FloatingActionButton
-                    }, {
-                        name: 'Speed dials',
-                        component: SpeedDials
-                    }
-                ]} renderRow={(row) => <ListItem tappable onClick={this.gotoComponent.bind(this, row.component)}>
-                    {row.name}
-                </ListItem>}/>
+                <List
+                    renderHeader={() => <ListHeader>Components</ListHeader>}
+                    dataSource={[
+                        {
+                            name: 'Pull to refresh',
+                            component: PullToRefresh
+                        }, {
+                            name: 'Infinite scroll',
+                            component: InfiniteScroll
+                        }, {
+                            name: 'Side menu',
+                            component: SideMenu
+                        }, {
+                            name: 'Floating action button',
+                            component: FloatingActionButton
+                        }, {
+                            name: 'Speed dials',
+                            component: SpeedDials
+                        }
+                    ]}
+                    renderRow={(row) => (
+                        <ListItem tappable onClick={this.gotoComponent.bind(this, row.component)}>
+                            {row.name}
+                        </ListItem>
+                    )}
+                />
             </Page>
         );
     }
 }
+
+Home.propTypes = {
+    navigator: PropTypes.object,
+};
 
 export default Home;
