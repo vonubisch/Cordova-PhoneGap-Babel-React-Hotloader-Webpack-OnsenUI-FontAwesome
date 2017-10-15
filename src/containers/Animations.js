@@ -81,7 +81,7 @@ class Animations extends React.Component {
     renderToolbar() {
         return (
             <Toolbar>
-                <div className='center'>Animations</div>
+                <div className="center">Animations</div>
             </Toolbar>
         );
     }

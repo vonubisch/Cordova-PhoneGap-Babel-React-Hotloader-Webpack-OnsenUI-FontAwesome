@@ -16,8 +16,8 @@ import Forms from './containers/Forms';
 import Animations from './containers/Animations';
 import SideMenu from './containers/SideMenu';
 
-const Layout = React.createClass({
-    renderTabs: function() {
+class Layout extends React.Component {
+    renderTabs() {
         return [
             {
                 content: <SideMenu navigator={this.props.navigator}/>,
@@ -36,24 +36,24 @@ const Layout = React.createClass({
                 tab: <Tab label="Animations" icon="fa-spinner"/>
             }
         ];
-    },
+    }
 
-    render: function() {
+    render() {
         return (
             <Tabbar renderTabs={this.renderTabs}/>
         );
     }
-});
+}
 
-const App = React.createClass({
-    renderPage: function(route, navigator) {
+class App extends React.Component {
+    renderPage(route, navigator) {
         route.props = route.props || {};
         route.props.navigator = navigator;
 
         return React.createElement(route.comp, route.props);
-    },
+    }
 
-    render: function() {
+    render() {
         return (
             <Navigator
                 initialRoute={{comp: Layout}}
@@ -61,6 +61,6 @@ const App = React.createClass({
             />
         );
     }
-});
+}
 
 ReactDOM.render(<App />, document.getElementById('app'));
