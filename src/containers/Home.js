@@ -16,6 +16,7 @@ import SpeedDials from '../components/SpeedDials';
 //     : 'ios';
 
 class Home extends React.Component {
+    
     gotoComponent(component) {
         this.props.navigator.pushPage({comp: component});
     }

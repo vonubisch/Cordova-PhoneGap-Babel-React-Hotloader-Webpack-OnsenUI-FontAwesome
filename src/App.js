@@ -5,6 +5,7 @@ import {Navigator} from 'react-onsenui';
 import Layout from './Layout';
 
 class App extends React.Component {
+
     renderPage(route, navigator) {
         route.props = route.props || {};
         route.props.key = route.comp.displayName;
