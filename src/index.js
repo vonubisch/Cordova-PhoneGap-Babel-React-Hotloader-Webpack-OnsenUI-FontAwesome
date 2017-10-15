@@ -6,9 +6,9 @@ import 'font-awesome-webpack';
 import React from 'react';
 import ReactDOM from 'react-dom';
 
-import ons from 'onsenui';
+// import ons from 'onsenui';
 
-import {Page, Tabbar, Tab, Navigator} from 'react-onsenui';
+import {Tabbar, Tab, Navigator} from 'react-onsenui';
 
 import Home from './containers/Home';
 import Dialogs from './containers/Dialogs';
@@ -16,7 +16,7 @@ import Forms from './containers/Forms';
 import Animations from './containers/Animations';
 import SideMenu from './containers/SideMenu';
 
-var Layout = React.createClass({
+const Layout = React.createClass({
     renderTabs: function() {
         return [
             {
@@ -45,7 +45,7 @@ var Layout = React.createClass({
     }
 });
 
-var App = React.createClass({
+const App = React.createClass({
     renderPage: function(route, navigator) {
         route.props = route.props || {};
         route.props.navigator = navigator;
