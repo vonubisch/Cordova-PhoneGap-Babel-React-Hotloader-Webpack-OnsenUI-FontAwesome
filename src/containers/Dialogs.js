@@ -4,7 +4,6 @@ import ons from 'onsenui';
 
 import {
     Page,
-    Toolbar,
     List,
     ListItem,
     ListHeader,
@@ -33,17 +32,9 @@ class Dialogs extends React.Component {
         this.props.navigator.pushPage({comp: Popovers});
     }
 
-    renderToolbar() {
-        return (
-            <Toolbar>
-                <div className="center">Dialogs</div>
-            </Toolbar>
-        );
-    }
-
     render() {
         return (
-            <Page renderToolbar={this.renderToolbar}>
+            <Page>
                 <List
                     dataSource={[
                         <ListItem

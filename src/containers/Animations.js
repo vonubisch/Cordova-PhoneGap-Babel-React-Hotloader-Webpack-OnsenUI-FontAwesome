@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 
 import MyPage from './MyPage';
 
-import {Page, Toolbar, List, ListItem, ListHeader} from 'react-onsenui';
+import {Page, List, ListItem, ListHeader} from 'react-onsenui';
 
 const capitalize = (str) => str.replace(/^[a-z]/, (c) => c.toUpperCase());
 
@@ -27,14 +27,6 @@ class Animations extends React.Component {
                 duration: 0.8
             }
         });
-    }
-
-    renderToolbar() {
-        return (
-            <Toolbar>
-                <div className="center">Animations</div>
-            </Toolbar>
-        );
     }
 
     render() {

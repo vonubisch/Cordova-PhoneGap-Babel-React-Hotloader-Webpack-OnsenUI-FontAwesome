@@ -4,7 +4,6 @@ import React from 'react';
 
 import {
     Page,
-    Toolbar,
     List,
     ListHeader,
     ListItem,
@@ -43,17 +42,9 @@ class Forms extends React.Component {
         this.setState({name: event.target.value});
     }
 
-    renderToolbar() {
-        return (
-            <Toolbar>
-                <div className="center">Forms</div>
-            </Toolbar>
-        );
-    }
-
     render() {
         return (
-            <Page renderToolbar={this.renderToolbar}>
+            <Page>
                 <List
                     dataSource={[
                         <ListItem key={0}>
